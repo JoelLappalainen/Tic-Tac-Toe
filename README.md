@@ -1,3 +1,3 @@
 ## Tic Tac Toe
 
-Small React project for learning react.
+A small React project for learning react.
