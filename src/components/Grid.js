@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import Square from './Square';
 
 class Grid extends Component {
-  state = { state: 'Game is on!', squares: [], size: 5 };
+  state = { squares: [], size: 5 };
 
   componentDidMount() {
     this.setState({ grid: this.initializeGrid() });
   }
 
   initializeGrid = () => {
-    const size = this.state.size;
+    const { size } = this.state;
     const arrOfN = (n, s) => Array.from(Array(n).keys()).map(a => a + s);
     const squares = arrOfN(size, 0).map((v, i) =>
       arrOfN(size, size * i).map((v, i) => ({ i: v, v: null })),
@@ -52,7 +52,7 @@ class Grid extends Component {
         return indexes.filter(x => x);
       })
       .flat();
-    console.log(freeIndexes);
+
     if (freeIndexes.length > 1) {
       const [row, col] = [
         ...freeIndexes[Math.floor(Math.random() * freeIndexes.length)],
